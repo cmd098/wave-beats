@@ -2,6 +2,30 @@ import argparse
 from numpy import *
 import matplotlib.pyplot as plt
 
+# - - Command line arguments - -
+
+parser = argparse.ArgumentParser(
+    description='Plot the superposition of two waves by definition of '
+                'frequencies, amplitude and time',
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter
+)
+
+
+def add_parser_argument(short_flag, full_flag, description, default_value):
+    parser.add_argument(
+        short_flag, full_flag, metavar='', type=float,
+        default=default_value, required=False, help=description
+    )
+
+
+add_parser_argument('-w1', '--wave1', 'wave 1 frequency (Hz)', 30)
+add_parser_argument('-w2', '--wave2', 'wave 2 frequency (Hz)', 32)
+add_parser_argument('-a', '--amplitude', 'waves amplitude (m)', 5)
+add_parser_argument('-t', '--time', 'points to evaluate function (s)', 2)
+args = parser.parse_args()
+
+# - - Sine wave modeling - -
+
 
 def eval_sine_wave(amplitude, angular_frequency, time):
     # evaluates y = Asin(-ωt)
@@ -13,10 +37,10 @@ def get_angular_frequency(frequency):
     return (2 * pi) * frequency
 
 
-f1, f2 = 20, 22  # wave frequencies in Hz
-time_points = arange(0, 2, 0.001)  # points to evaluate function
-wave1 = eval_sine_wave(10, get_angular_frequency(f1), time_points)
-wave2 = eval_sine_wave(10, get_angular_frequency(f2), time_points)
+f1, f2 = args.wave1, args.wave2  # wave frequencies in Hz
+time_points = arange(0, args.time, 0.001)  # points to evaluate function
+wave1 = eval_sine_wave(args.amplitude, get_angular_frequency(f1), time_points)
+wave2 = eval_sine_wave(args.amplitude, get_angular_frequency(f2), time_points)
 
 # - - Wave plotting - -
 
