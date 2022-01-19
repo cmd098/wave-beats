@@ -20,7 +20,7 @@ def add_parser_argument(short_flag, full_flag, description, default_value):
 
 add_parser_argument('-w1', '--wave1', 'wave 1 frequency (Hz)', 30)
 add_parser_argument('-w2', '--wave2', 'wave 2 frequency (Hz)', 32)
-add_parser_argument('-a', '--amplitude', 'waves amplitude (m)', 5)
+add_parser_argument('-a', '--amplitude', 'waves amplitude (m)', 10)
 add_parser_argument('-t', '--time', 'points to evaluate function (s)', 2)
 args = parser.parse_args()
 
