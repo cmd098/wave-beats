@@ -6,7 +6,9 @@ patterns in Python using NumPy and Matplotlib libraries
 * NumPy 1.22.0
 * Matplotlib 3.5.1
 
->A beat is an interference pattern between two sounds of slightly different 
+---
+
+A beat is an interference pattern between two sounds of slightly different 
 frequencies at the same point in space, perceived as a periodic variation 
 in volume whose rate is the difference of the two frequencies
 
