@@ -1,6 +1,6 @@
 # Wave beats
 Modeling and visualization of wave interference and beat 
-patterns in Python using NumPy and Matplotlib libraries
+patterns in Python
 
 * Python 3.9.0
 * NumPy 1.22.0
